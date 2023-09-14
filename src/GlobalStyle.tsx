@@ -8,10 +8,6 @@ export const GlobalStyle = () => {
         ${emotionReset}
 
         html {
-          @font-face {
-            font-family: "ArchitectsDaughter";
-            src: url("./fonts/ArchitectsDaughter.ttf");
-          }
           font-family: "Noto Sans KR", sans-serif;
           font-size: 16px;
           @media screen and (max-width: 1400px) {
@@ -39,7 +35,6 @@ export const GlobalStyle = () => {
           box-sizing: border-box;
           -moz-osx-font-smoothing: grayscale;
           -webkit-font-smoothing: antialiased;
-          font-smoothing: antialiased;
         }
 
         button {
