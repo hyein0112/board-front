@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  font-size: 1.4375rem;
+  font-size: 1.25rem;
   font-family: "Architects Daughter";
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ export const FormTitle = styled.span`
 `;
 
 export const Input = styled.input`
-  font-size: 1.4375rem;
+  font-size: 1.2rem;
   font-family: "Noto Sans KR";
   border: 0.125rem solid #495464;
   width: 30.938rem;
@@ -47,5 +47,26 @@ export const FormButton = styled.button`
   font-size: 1.4375rem;
   font-family: "Architects Daughter";
   border: 0.125rem solid #495464;
-  margin-top: 6.75rem;
+  margin: 6.75rem 0 2rem 0;
+
+  &:hover {
+    background-color: #495464;
+    color: #f4f4f2;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.98);
+    filter: brightness(90%);
+  }
+`;
+
+export const LoginButton = styled.span`
+  font-size: 1.1rem;
+  font-family: "Noto Sans KR";
+  color: #495464;
+
+  &:hover {
+    color: #708099;
+  }
 `;
