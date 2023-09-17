@@ -40,6 +40,15 @@ export const Input = styled.input`
   }
 `;
 
+export const ErrorMessage = styled.span`
+  font-size: 1rem;
+  position: absolute;
+  text-align: end;
+  width: 11.375rem;
+  margin: -4.5rem 0 0 19.3rem;
+  color: #ce2929;
+`;
+
 export const FormButton = styled.button`
   width: 30.938rem;
   height: 3.5rem;

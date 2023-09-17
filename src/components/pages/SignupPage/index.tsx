@@ -3,12 +3,15 @@ import { useForm, FieldErrors } from "react-hook-form";
 import * as S from "./style";
 import * as I from "../../../assets";
 import { SignupType } from "../../../types/auth";
-// import { auth } from "../../../utils/Auth";
 import axios from "axios";
 
 const SignupPage = () => {
   // const navigate = useNavigate();
-  const { register, handleSubmit } = useForm<SignupType>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignupType>();
   const handleSubmitData = async (SignupData: SignupType) => {
     try {
       const res = await axios.post(
@@ -39,32 +42,63 @@ const SignupPage = () => {
       >
         <>
           <S.FormBox>
-            <S.FormTitle>NAME</S.FormTitle>
-            <S.Input placeholder={"Enter Your NAME"} {...register("name")} />
+            <S.FormTitle>NICKNAME</S.FormTitle>
+            <S.Input
+              minLength={2}
+              placeholder={"Enter Your NICKNAME"}
+              {...register("nickname", {
+                required: true,
+              })}
+            />
+            {errors.nickname?.type === "required" && (
+              <S.ErrorMessage>닉네임 입력은 필수입니다.</S.ErrorMessage>
+            )}
           </S.FormBox>
         </>
         <>
           <S.FormBox>
             <S.FormTitle>PHONE NUMBER</S.FormTitle>
             <S.Input
+              minLength={9}
               placeholder={"Enter Your PHONE NUMBER"}
-              {...register("phone_number")}
+              {...register("phone_number", {
+                required: true,
+              })}
             />
+            {errors.phone_number?.type === "required" && (
+              <S.ErrorMessage>전화번호 입력은 필수입니다.</S.ErrorMessage>
+            )}
           </S.FormBox>
         </>
         <>
           <S.FormBox>
             <S.FormTitle>ID</S.FormTitle>
-            <S.Input placeholder={"Enter Your PHONE ID"} {...register("id")} />
+            <S.Input
+              minLength={2}
+              placeholder={"Enter Your ID "}
+              {...register("id", {
+                required: true,
+              })}
+            />
+            {errors.id?.type === "required" && (
+              <S.ErrorMessage>아이디 입력은 필수입니다.</S.ErrorMessage>
+            )}
           </S.FormBox>
         </>
         <>
           <S.FormBox>
             <S.FormTitle>PASSWORD</S.FormTitle>
             <S.Input
-              placeholder={"Enter Your PHONE PASSWORD"}
-              {...register("pw")}
+              minLength={4}
+              maxLength={20}
+              placeholder={"Enter Your PASSWORD (4 to 20 characters)"}
+              {...register("pw", {
+                required: true,
+              })}
             />
+            {errors.pw?.type === "required" && (
+              <S.ErrorMessage>비밀번호 입력은 필수입니다.</S.ErrorMessage>
+            )}
           </S.FormBox>
         </>
         <S.FormButton>Sign Up</S.FormButton>
