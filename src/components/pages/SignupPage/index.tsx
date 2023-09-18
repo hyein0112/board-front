@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm, FieldErrors } from "react-hook-form";
 import * as S from "./style";
 import * as I from "../../../assets";
@@ -6,7 +6,7 @@ import { SignupType } from "../../../types/auth";
 import axios from "axios";
 
 const SignupPage = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -21,7 +21,8 @@ const SignupPage = () => {
         }
       );
       console.log(res.data);
-      alert("회원가입 성공");
+      alert(res.data.message);
+      navigate("/signin");
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
