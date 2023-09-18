@@ -7,7 +7,11 @@ import axios from "axios";
 
 const SigninPage = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm<LoginType>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginType>();
   const handleSubmitData = async (LoginData: LoginType) => {
     try {
       const res = await axios.post(
@@ -40,7 +44,15 @@ const SigninPage = () => {
         <>
           <S.FormBox>
             <S.FormTitle>ID</S.FormTitle>
-            <S.Input placeholder={"Enter Your PHONE ID"} {...register("id")} />
+            <S.Input
+              placeholder={"Enter Your PHONE ID"}
+              {...register("id", {
+                required: true,
+              })}
+            />
+            {errors.id?.type === "required" && (
+              <S.ErrorMessage>아이디 입력은 필수입니다.</S.ErrorMessage>
+            )}
           </S.FormBox>
         </>
         <>
@@ -48,8 +60,13 @@ const SigninPage = () => {
             <S.FormTitle>PASSWORD</S.FormTitle>
             <S.Input
               placeholder={"Enter Your PHONE PASSWORD"}
-              {...register("pw")}
+              {...register("pw", {
+                required: true,
+              })}
             />
+            {errors.pw?.type === "required" && (
+              <S.ErrorMessage>비밀번호 입력은 필수입니다.</S.ErrorMessage>
+            )}
           </S.FormBox>
         </>
         <S.FormButton>Sign In</S.FormButton>
