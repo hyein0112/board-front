@@ -3,17 +3,19 @@ import styled from "@emotion/styled";
 export const Container = styled.div`
   width: 100vw;
   height: 128px;
+  position: absolute;
   background-color: #e8e8e8;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  z-index: 1;
 `;
 
 export const Logo = styled.img`
   background-color: #e8e8e8;
   position: absolute;
-  left: 1rem;
+  left: 1.813rem;
 `;
 
 export const SearchBar = styled.input`

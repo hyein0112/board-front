@@ -8,7 +8,8 @@ export const Container = styled.div`
   height: 100vh;
   align-items: center;
   justify-content: center;
-  margin-top: -3rem;
+  padding-top: -3rem;
+  background-color: #f4f4f2;
 `;
 
 export const FormBox = styled.div`
@@ -28,6 +29,7 @@ export const FormTitle = styled.span`
 export const Input = styled.input`
   font-size: 1.2rem;
   font-family: "Noto Sans KR";
+  background-color: #f4f4f2;
   border: 0.125rem solid #495464;
   width: 30.938rem;
   height: 3.125rem;

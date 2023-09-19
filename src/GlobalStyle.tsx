@@ -31,7 +31,6 @@ export const GlobalStyle = () => {
         *::after,
         *::before {
           color: #495464;
-          background: #f4f4f2;
           box-sizing: border-box;
           -moz-osx-font-smoothing: grayscale;
           -webkit-font-smoothing: antialiased;
