@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { SearchData } from "../../../atoms";
+
 const MainPage = () => {
+  const serchValue = useRecoilValue(SearchData);
   const uuid = localStorage.getItem("uuid");
   const navigate = useNavigate();
 
@@ -25,6 +29,12 @@ const MainPage = () => {
     }
     uuid ? getPostList() : navigate("/signin");
   }, [navigate, uuid]);
+
+  useEffect(() => {
+    console.log(serchValue);
+    setPosts(serchValue);
+  }, [serchValue]);
+
   return (
     <>
       <C.Header />
